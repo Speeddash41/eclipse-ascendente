@@ -1,9 +1,20 @@
-<canvas id="game"></canvas>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>RPG Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<div id="ui">
-  <div id="hp"></div>
-  <div id="level"></div>
-  <div>1 Nova | 2 Dash</div>
-</div>
+<h2>RPG Online</h2>
 
-<script src="game.js"></script>
+<input id="user" placeholder="Usuário">
+<input id="pass" type="password" placeholder="Senha">
+
+<button onclick="login()">Entrar</button>
+<button onclick="register()">Criar Conta</button>
+
+<script src="auth.js"></script>
+</body>
+</html>
