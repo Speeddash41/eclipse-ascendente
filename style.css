@@ -1,9 +1,3 @@
-body { margin: 0; background: black; overflow: hidden; }
-canvas { display: block; margin: auto; background: #111; }
-#ui {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  color: white;
-  font-family: Arial;
-}
+body{margin:0;background:#000;overflow:hidden}
+canvas{display:block;margin:auto;background:#111}
+#ui{position:fixed;top:10px;left:10px;color:#fff;font-family:Arial}
