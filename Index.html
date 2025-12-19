@@ -1,20 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>RPG Online</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<h2>RPG Online</h2>
-
-<input id="user" placeholder="Usuário">
-<input id="pass" type="password" placeholder="Senha">
-
+<input id="u" placeholder="Usuário">
+<input id="p" type="password" placeholder="Senha">
 <button onclick="login()">Entrar</button>
-<button onclick="register()">Criar Conta</button>
+<button onclick="register()">Criar</button>
 
-<script src="auth.js"></script>
-</body>
-</html>
+<script>
+const ws=new WebSocket("wss://SEU_RENDER.onrender.com");
+
+function register(){
+ ws.send(JSON.stringify({
+  type:"register",
+  user:u.value,
+  pass:p.value
+ }));
+ alert("Conta criada");
+}
+
+function login(){
+ ws.send(JSON.stringify({
+  type:"login",
+  user:u.value,
+  pass:p.value
+ }));
+ ws.onmessage=e=>{
+  let d=JSON.parse(e.data);
+  if(d.init){
+    sessionStorage.setItem("game",JSON.stringify(d));
+    location="game.html";
+  }
+ };
+}
+</script>
